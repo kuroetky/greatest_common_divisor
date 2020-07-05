@@ -23,15 +23,15 @@ ERROR_EXIT () {
 
 # /* 2 引数テスト */
 # 引数なし
-./calc.sh >> /tmp/$$-test || ERROR_EXIT "test error 2-1"
+./calc.sh >> ERROR_EXIT "test error 2-1" || /tmp/$$-test
 # 引数1つ
-./calc.sh 2 >>/tmp/$$-test || ERROR_EXIT "test error 2-2"
+./calc.sh 2 >> ERROR_EXIT "test error 2-2" || /tmp/$$-test
 # 引数3つ
-./calc.sh 2 4 8 >> /tmp/$$-test || ERROR_EXIT "test error 2-3" 
+./calc.sh 2 4 8 >> ERROR_EXIT "test error 2-3" || /tmp/$$-test
 # 引数が負の数
-./calc.sh -1 2 >> /tmp/$$-test || ERRPR_EXIT "test eror 2-4"
+./calc.sh -1 2 >> ERRPR_EXIT "test eror 2-4" || /tmp/$$-test
 # 引数が小数
-./calc.sh 1.2 2 >> $tmp-test || ERRPR_EXIT "test eror 2-5"
+./calc.sh 1.2 2 >> ERRPR_EXIT "test eror 2-5" || /tmp/$$-test
 
 
 

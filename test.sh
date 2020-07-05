@@ -21,7 +21,7 @@ ERROR_EXIT () {
 ./calc.sh 4 516 >> /tmp/$$-test || ERRPR_EXIT "test eror 1-4"
 ./calc.sh 4 1028 >> /tmp/$$-test || ERRPR_EXIT "test eror 1-5"
 
-# /* 2 引数テスト */
+# /* 2 異常テスト */
 # 引数なし
 ./calc.sh >> /tmp/$$-test ||  ERROR_EXIT "test error 2-1"
 # 引数1つ

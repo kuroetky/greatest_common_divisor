@@ -23,6 +23,25 @@ IsInteger(){
   fi
 }
 
+# 引数チェック
+CheckArgument(){
+  # 引数の数
+  if [ $# -ne 2 ]; then
+    echo "ERROR : argument number is invalid !!"
+    exit
+  fi
+
+  # 整数判定
+  IsInteger $NUM1
+  IsInteger $NUM2
+
+  # 自然数判定
+  if [ $NUM1 -lt 1 ] || [ $NUM2 -lt 1 ]; then
+    echo "ERROR : argument is not natural number!!"
+    exit
+  fi
+}
+
 # *******************************
 # メイン処理
 # *******************************
@@ -32,22 +51,8 @@ NUM1=$1
 NUM2=$2
 TEP=0
 
-# /* 引数の判定処理 */
-# 引数の数
-if [ $# -ne 2 ]; then
-  echo "ERROR : argument number is invalid !!"
-  exit
-fi
-
-# 整数判定
-IsInteger $NUM1
-IsInteger $NUM2
-
-# 自然数判定
-if [ $NUM1 -lt 1 ] || [ $NUM2 -lt 1 ]; then
-  echo "ERROR : argument is not natural number!!"
-  exit
-fi
+# 引数チェック
+CheckArgument $NUM1 $NUM2
 
 # ユークリッド互除法
 if [ $NUM1 -lt $NUM2 ]; then
@@ -66,4 +71,3 @@ done
 
 echo "Greatest common is ${NUM2}"
 exit
-

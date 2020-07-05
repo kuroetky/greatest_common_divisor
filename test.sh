@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# /////////////////
+# // 関数
+# /////////////////
+
 # エラー表示
 ERROR_EXIT () {
   echo "$1" >&2
@@ -7,11 +11,12 @@ ERROR_EXIT () {
   exit 1
 }
 
+
 # /////////////////
 # // テスト本体
 # /////////////////
 
-# /* 1 正常テスト */
+# 1 正常テスト
 # 引数同じ
 ./calc.sh 1 1 >> /tmp/$$-test || ERROR_EXIT "test error 1-1" 
 # 引数大小逆
@@ -21,7 +26,7 @@ ERROR_EXIT () {
 ./calc.sh 4 516 >> /tmp/$$-test || ERRPR_EXIT "test eror 1-4"
 ./calc.sh 4 1028 >> /tmp/$$-test || ERRPR_EXIT "test eror 1-5"
 
-# /* 2 異常テスト */
+# 2 異常テスト
 # 引数なし
 ./calc.sh >> /tmp/$$-test ||  ERROR_EXIT "test error 2-1"
 # 引数1つ
@@ -40,6 +45,3 @@ ERROR_EXIT () {
 # 引数が文字列
 ./calc.sh aa 2 >> /tmp/$$-test || ERRPR_EXIT "test eror 2-8"
 ./calc.sh 2 aa >> /tmp/$$-test || ERRPR_EXIT "test eror 2-9"
-
-
-

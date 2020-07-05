@@ -4,7 +4,9 @@
 2つの数の最大公約数を求めるシェルスクリプト(calc.sh)と  
 その動作を確認するテストスクリプト(test.sh)です。  
 テストスクリプトはTravis Clで動作を確認済みです。  
-参考）travis.png
+参考）
+テスト結果：travis.png
+URL：https://github.com/kuroetky/greatest_common_divisor.git
 
 ## 使い方
 シェルが使える環境にて、./calc.sh (数字1) (数字2)と入力してください。  
